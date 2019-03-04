@@ -1,0 +1,157 @@
+$def with (user)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./static/images/icon.png">
+
+    <title>Movie information system</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./static/css/cover.css" rel="stylesheet">
+    <style>
+      .alert {
+          padding: 20px;
+          background-color: #f44336;
+          color: white;
+      }
+
+      .closebtn {
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+      }
+
+      .closebtn:hover {
+          color: black;
+      }
+      </style>
+
+
+
+  </head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hello, $context.user</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/movies">Movies </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onshow">Onshow</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/trans">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/statistic">Statistic</a> 
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+        <div>
+          <br>
+          <br>
+          <br>
+            <table class="table table-bordered">
+               <thead>
+                  <tr style="font-weight:bold">
+                    <td scope="col">email</td>
+                    <td scope="col">name</td>
+                    <td scope="col">gender</td>
+                    <td scope="col">birthday</td>
+                    <td scope="col">district</td>
+                  </tr>
+                </thead>
+              <tbody>
+                <tr>
+                    <td >$user.account</td>
+                    <td >$user.name</td>
+                    <td >$user.gender</td>
+                    <td >$user.birth</td>
+                    <td >$user.district</td>
+                </tr>
+              </tbody>
+            </table>
+          
+
+
+          <form class="form-signin" method="POST">
+            
+                <!-- <div class="alert">
+                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  Please Login Again.
+                </div> -->
+
+            <h1 class="h3 mb-3 font-weight-normal" style="color:white">Modify your information</h1>
+            
+            <label for="inputEmail" class="sr-only" >Email address</label>
+            <input type="email" name="account" class="form-control" placeholder=$context.user readonly>
+            
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" >
+
+            <label for="Name" class="sr-only">Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Name: Richard" >
+
+            <label for="Gender" class="sr-only">Gender</label>
+            <input type="text" name="gender" class="form-control" placeholder="Gender: male/female" >
+
+            <label for="Birthday" class="sr-only">Birthday</label>
+            <input type="date" name="birth" class="form-control" placeholder="Birthday: 2002-04-01" >
+
+            <label for="District" class="sr-only">District</label>
+            <input type="text" name="district" class="form-control" placeholder="District: 0-10" >
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+          </form>
+      </div>
+      
+</body>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="./static/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="./static/assets/js/vendor/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./static/assets/js/vendor/holder.min.js"></script>
+
+</html>
+
+
+
+
+
+
+
+
+

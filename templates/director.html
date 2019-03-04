@@ -1,0 +1,86 @@
+$def with (directors)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./static/images/icon.png">
+
+    <title>Movie information system</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./static/css/cover.css" rel="stylesheet">
+
+
+
+  </head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hello, $context.user</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/movies">Movies <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onshow">Onshow</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/trans">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/statistic">Statistic</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+        <div style="float: left;width:80%;">
+          <br>
+          <br>
+          <br>
+	        <p class="list-group-item list-group-item-action ">Director's name: <strong>$directors.name</strong></p>
+	        <p class="list-group-item list-group-item-action list-group-item-success">Director's gender: <strong>$directors.gender</strong></p>
+	        <p class="list-group-item list-group-item-action list-group-item-success">Director's birthday: <strong>$directors.birth</strong></p>
+        </div>
+      
+</body>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="./static/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="./static/assets/js/vendor/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./static/assets/js/vendor/holder.min.js"></script>
+
+</html>
+
+
+
+
+
+
+
+
+

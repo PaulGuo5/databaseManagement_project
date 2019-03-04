@@ -1,0 +1,213 @@
+$def with (movies,page)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/images/icon.png">
+
+    <title>Movie information system</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/cover.css" rel="stylesheet">
+
+
+  </head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hello, $context.user</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/movies">Movies <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onshow">Onshow</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/trans">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/statistic">Statistic</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </header>
+        <main>
+        <br><br><br>
+            <center>
+            <h1 class="h3 mb-3 font-weight-normal" style="color:white">Movie</h1>
+            </center>
+            
+            <div align="center">
+              <form class="mt-2 mt-md-0" method="POST">
+                <input class="mr-sm-2" type="text" name="key" placeholder="Search" aria-label="Search"required>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+            
+
+          
+          <hr class="featurette-divider">
+
+          <div>
+            <table>
+              <td>Genre:</td>
+
+              <td>
+                <a role="button"  href="#" class="btn btn-outline-danger">ALL</a>
+              </td>
+              <td>
+                <a role="button" href="/movietagAdventure"  class="btn btn-outline-secondary">Adventure</a>
+                <a role="button" href="/movietagComedy"  class="btn btn-outline-success">Comedy</a>
+                <a role="button" href="/movietagAction"  class="btn btn-outline-primary">Action</a>
+                <a role="button" href="/movietagDrama"  class="btn btn-outline-warning">Drama</a>
+                <a role="button" href="/movietagCrime"  class="btn btn-outline-info">Crime</a>
+                <a role="button" href="/movietagThriller"  class="btn btn-outline-light">Thriller</a>
+                <a role="button" href="/movietagAnimation"  class="btn btn-outline-info">Animation</a>
+                <a role="button" href="/movietagBiography"  class="btn btn-outline-secondary">Biography</a>
+              </td>
+              <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a role="button" href="/movietagSci-Fi"  class="btn btn-outline-success">Sci-Fi</a>
+                  <a role="button" href="/movietagMusical"  class="btn btn-outline-primary">Musical</a>
+                  <a role="button" href="/movietagFamily"  class="btn btn-outline-warning">Family</a>
+                  <a role="button" href="/movietagFantasy"  class="btn btn-outline-info">Fantasy</a>
+                  <a role="button" href="/movietagMystery"  class="btn btn-outline-light">Mystery</a>
+                  <a role="button" href="/movietagWar"  class="btn btn-outline-info">War</a>
+                  <a role="button" href="/movietagRomance"  class="btn btn-outline-success">Romance</a>
+                  <a role="button" href="/movietagWestern"  class="btn btn-outline-primary">Western</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Year:</td>
+                <td>
+                  <a role="button" href="/movietagAll"  class="btn btn-outline-danger">ALL</a>
+                </td>
+                <td>
+                  <a role="button" href="/movietagAfter2018"  class="btn btn-outline-secondary">After 2018</a>
+                  <a role="button" href="/movietag2015-2018"  class="btn btn-outline-success">2015-2018</a>
+                  <a role="button" href="/movietag2010-2015"  class="btn btn-outline-primary">2010-2015</a>
+                  <a role="button" href="/movietag2005-2010"  class="btn btn-outline-warning">2005-2010</a>
+                  <a role="button" href="/movietag2000-2005"  class="btn btn-outline-info">2000-2005</a>
+                  <a role="button" href="/movietag1995-2000"  class="btn btn-outline-info">1995-2000</a>
+                  <a role="button" href="/movietag1990-1995"  class="btn btn-outline-info">1990-1995</a>
+                  <a role="button" href="/movietagBefore1990"  class="btn btn-outline-light">Before 1990</a>
+                </td>
+              </tr>
+
+              <tr>
+                
+                <td>Rating:</td>
+                
+                <td>
+                  <a role="button" href="/" class="btn btn-outline-danger">ALL</a>
+                </td>
+                
+                <td>
+                  <a role="button" href="/movietagR" class="btn btn-outline-secondary">R</a>
+                  <a role="button" href="/movietagPG-13" class="btn btn-outline-success">PG-13</a>
+                  <a role="button" href="/movietagPG" class="btn btn-outline-primary">PG</a>
+                  <a role="button" href="/movietagG" class="btn btn-outline-warning">G</a>
+                  <a role="button" href="/movietagNC-17" class="btn btn-outline-info">NC-17</a>
+                  <a role="button" href="/movietagTV-PG" class="btn btn-outline-light">TV-PG</a>
+                  <a role="button" href="/movietagTV-MA" class="btn btn-outline-warning">TV-MA</a>
+                  <a role="button" href="/movietagB" class="btn btn-outline-info">B</a>
+                  <a role="button" href="/movietagB15" class="btn btn-outline-light">B15</a>
+                  <a role="button" href="/movietagTV-14" class="btn btn-outline-light">TV-14</a>
+                </td>
+              
+              </tr>
+            </table>
+
+          </div>
+          <br>
+          <br>
+
+
+          <!-- <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2> -->
+          <!-- <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> -->
+            <table class="table table-bordered"  style=" width:1200px;">
+               <thead>
+                  <tr style="font-weight:bold">
+                    <th scope="row">#</th>
+                    <td scope="col">TITLE</td>
+                    <td scope="col">COMPANY</td>
+                    <td scope="col">BUDGET</td>
+                    <td scope="col">GENRE</td>
+                    <td scope="col">GROSS</td>
+                    <td scope="col">RATING</td>
+                    <td scope="col">Release Time</td>
+                    <td scope="col">Run Time</td>
+                    <td scope="col">YEAR</td>
+                  </tr>
+                </thead>
+              <tbody>
+              $for movie in movies:
+                <tr>
+                  <th scope="row">$movie.movie_id</th>
+                    <td ><a href="moviedetail$movie.movie_id" style="color: #FF1493">$movie.title</a></td>
+                    <td >$movie.company</td>
+                    <td >$movie.budget</td>
+                    <td >$movie.genre</td>
+                    <td >$movie.gross</td>
+                    <td >$movie.rating</td>
+                    <td >$movie.release_time</td>
+                    <td >$movie.runtime</td>
+                    <td >$movie.year</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div style="position: absolute;left: 0;right: 0;margin: auto;width:18%; ">
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                      <li class="active"><a href="/movies1">&laquo;</a></li>
+                      $for i in range(10):
+                        <li><a href="/movies$page">$page &nbsp;</a></li>
+                        $ page = (page+1)
+                      <li><a href="/movies$page">&raquo;</a></li>
+                  </ul>
+                </nav>
+            </div>
+            <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+      </footer>
+
+          </main>
+</body>
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/static/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="/static/assets/js/vendor/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="/static/assets/js/vendor/holder.min.js"></script>
+
+</html>

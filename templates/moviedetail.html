@@ -1,0 +1,130 @@
+$def with (movies,actors,directors,ratings,amb)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./static/images/icon.png">
+
+    <title>Movie information system</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./static/css/cover.css" rel="stylesheet">
+  </head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hello, $context.user</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/movies">Movies <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onshow">Onshow</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/trans">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/statistic">Statistic</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+        <div style="float: left;width:80%;">
+          <br><br><br>
+          <div class="list-group" >
+            $if movies:
+              $for movie in movies: 
+                <p class="list-group-item list-group-item-action ">Movie: <strong>$movie.title</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Company: <strong>$movie.company</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Budget: <strong>$movie.budget</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Genre: <strong>$movie.genre</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Gross: <strong>$movie.gross</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Rating: <strong>$movie.rating</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Release time: <strong>$movie.release_time</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Run time: <strong>$movie.runtime</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Year: <strong>$movie.year</strong></p>
+          </div>
+          <br><br><br>
+          <div class="list-group" >
+            $if actors:
+              <p class="list-group-item list-group-item-action">Actor list (click on the actor below to explore details)</p>
+              $ index = 1
+              $for actor in actors:
+                  <a href="/actor$actor.id" class="list-group-item list-group-item-action list-group-item-danger">
+                    Actor$index: <stong>$actor.name</stong></a>
+                  $ index = index+1
+          </div>
+          <br><br><br>
+          <div class="list-group" >
+            $if directors:
+              <p class="list-group-item list-group-item-action">Director list (click on the director below to explore details)</p>
+              $for director in directors:
+                  <a href="/director$director.id" class="list-group-item list-group-item-action list-group-item-info">
+                    Director: <stong>$director.name</stong></a>
+          </div>
+          <br><br><br>
+          
+            <div class="list-group" >
+              $ flag = False
+              $if ratings:
+                <p class="list-group-item list-group-item-action">Rating list (Rating | Comment)</p>
+                $for rating in ratings:
+                  $if rating.user_id == context.id:
+                    $ flag = True
+                  <p class="list-group-item list-group-item-action list-group-item-warning">$rating.score | $rating.text</p>
+            </div>
+            $if flag:
+              <div class="alert">
+                <!-- <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  -->
+                <p style="color: white">You have Rated this movie</p>
+              </div>
+
+            $elif not amb:
+                <br><br><br>
+                <p class="list-group-item list-group-item-action">Rate this movie now !</p>
+                <form class="form-signin" method="POST">
+                  <label for="score" class="sr-only">Score</label>
+                  <input type="number" name="score" class="form-control" placeholder="You can rate here: (rate from 0 to 10 )" required>
+
+                  <label for="comment" class="sr-only">Comment</label>
+                  <input type="text" name="comment" class="form-control" placeholder="You can comment here: (such as: Excellent !)" required>
+
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                </form>
+
+      </div>
+      
+</body>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="./static/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="./static/assets/js/vendor/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./static/assets/js/vendor/holder.min.js"></script>
+
+</html>

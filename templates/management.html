@@ -1,0 +1,142 @@
+$def with(movies)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./static/images/icon.png">
+
+    <title>Movie information system</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+    <link href="./static/css/cover.css" rel="stylesheet">
+    <link href="./static/images/icon.png" rel="stylesheet">
+
+    <style>
+      .alert {
+          padding: 20px;
+          background-color: #f44336;
+          color: white;
+      }
+
+      .closebtn {
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+      }
+
+      .closebtn:hover {
+          color: black;
+      }
+      </style>
+
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/login">Hello, $context.user</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="inner cover">
+    <div>
+    <br><br><br>
+        <form class="form-signin" method="POST">
+        
+            <!-- <div class="alert">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+              Please Login Again.
+            </div> -->
+
+        <h1 class="h3 mb-3 font-weight-normal" style="color:white">Add on show movies</h1>
+
+        <label for="movie_id" class="sr-only" >Movie ID</label>
+        <input type="text" name="movie_id" class="form-control" placeholder="Movie ID" required>
+        
+        <label for="time_schedule" class="sr-only">Time Schedule</label>
+        <input type="text" name="time_schedule" class="form-control" placeholder="Time Schedule:2018-12-02 12:00:00" required>
+
+        <label for="seat_limit" class="sr-only">Seat Limit</label>
+        <input type="text" name="seat_limit" class="form-control" placeholder="Seat Limit" required>
+
+        <label for="price" class="sr-only">Price</label>
+        <input type="text" name="price" class="form-control" placeholder="Price" required>
+
+        <label for="thea_id" class="sr-only">Theater ID</label>
+        <input type="text" name="thea_id" class="form-control" placeholder="Theater ID" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
+      </form>
+
+      <br><br>
+
+      <h1 class="h3 mb-3 font-weight-normal" style="color:white">Manage on show movies</h1>
+
+      <table class="table table-bordered">
+         <thead>
+            <tr style="font-weight:bold">
+              <th scope="row">title</th>
+              <td scope="col">schedule</td>
+              <td scope="col">seat</td>
+              <td scope="col">price</td>
+              <td scope="col">theater</td>
+              <td scope="col">district</td>
+              <td scope="col">operation</td>
+            </tr>
+          </thead>
+              <tbody>
+              $for movie in movies:
+                <tr>
+                    <th ><a style="color: #FF1493"> $movie.title </a></th>
+                    <td >$movie.time_schedule</td>
+                    <td >$movie.seat_limit</td>
+                    <td >$movie.price</td>
+                    <td >$movie.name</td>
+                    <td >$movie.district</td>
+                    <td ><a href="/delete$movie.id">delete</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+
+    </div> 
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+  </main>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="./static/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="./static/assets/js/vendor/popper.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./static/assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>

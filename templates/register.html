@@ -1,0 +1,118 @@
+$def with (error)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/images/icon.png">
+
+    <title>Movie Information System</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/cover.css" rel="stylesheet">
+
+            
+      <style>
+      .alert {
+          padding: 20px;
+          background-color: #f44336;
+          color: white;
+      }
+
+      .closebtn {
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+      }
+
+      .closebtn:hover {
+          color: black;
+      }
+      </style>
+
+
+  </head>
+
+  <body class="text-center" background="/static/images/back.jpeg" style="background-size:cover">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner"> 
+          <h3 class="masthead-brand">Movie Bar</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="/index">Home</a>
+            $if not context.logged_in:
+                <a class="nav-link" href="/login">Login</a>
+            $if context.logged_in == 2:
+                <a class="nav-link" href="/user">User</a> 
+                <a class="nav-link" href="/logout">Logout</a> 
+        
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <form class="form-signin" method="POST">
+        
+            <!-- <div class="alert">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+              Please Login Again.
+            </div> -->
+
+        <h1 class="h3 mb-3 font-weight-normal" style="color:white">Please Register</h1>
+        
+         $if error:
+            <div class="alert">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+              <a href="/login" style="color: white">Please Login Again.</a>
+            </div>
+
+        <label for="inputEmail" class="sr-only" >Email address</label>
+        <input type="email" name="account" class="form-control" placeholder="Email address" required>
+        
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+        <label for="Name" class="sr-only">Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Name: Richard" required>
+
+        <label for="Gender" class="sr-only">Gender</label>
+        <input type="text" name="gender" class="form-control" placeholder="Gender: male/female" required>
+
+        <label for="Birthday" class="sr-only">Birthday</label>
+        <input type="text" name="birth" class="form-control" placeholder="Birthday: 2002-04-01" required>
+
+        <label for="District" class="sr-only">District</label>
+        <input type="text" name="district" class="form-control" placeholder="District: 0-10" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+      </form>
+    </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p style="color:white">Final project for Infsci2710 by Ruochi Zhang, Zhehao Guo, Jun Jiang </p>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/static/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="/static/assets/js/vendor/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>

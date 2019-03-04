@@ -1,0 +1,102 @@
+$def with (current_gross,top_rated,recommends_movies)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/images/icon.png">
+
+    <title>Movie information system</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/cover.css" rel="stylesheet">
+
+
+  </head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hello, $context.user</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/movies">Movies </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/onshow">Onshow</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/trans">Orders</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/statistic">Statistic<span class="sr-only">(current)</span></a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </header>
+
+
+  <div style="float: left;width:80%;">
+          <br><br><br>
+          <div class="list-group" >
+            $if recommends_movies:
+              $for movie in recommends_movies:
+                <p class="list-group-item list-group-item-action"><strong> Recommendation Movies </strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Movie: <strong>$movie.title</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Company: <strong>$movie.company</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Budget: <strong>$movie.budget</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Genre: <strong>$movie.genre</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Gross: <strong>$movie.gross</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Rating: <strong>$movie.rating</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Release time: <strong>$movie.release_time</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Run time: <strong>$movie.runtime</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-success">Year: <strong>$movie.year</strong></p>
+          </div>
+          <br><br><br>
+          <div class="list-group" >
+              $for rate in top_rated:
+                <p class="list-group-item list-group-item-action"><strong>Top 10 Rated Movies</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-info">Movie: <strong>$rate.title</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-info">Score: <strong>$rate.score</strong></p>
+          </div>
+          <br><br><br>
+          <div class="list-group" >
+              $for movie in current_gross:
+                <p class="list-group-item list-group-item-action"><strong>Current Top 10 Popular Movies</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-danger">Movie: <strong>$movie.title</strong></p>
+                <p class="list-group-item list-group-item-action list-group-item-danger">Current Gross: <strong>$movie.total</strong></p>
+                  
+          </div>
+      </div>
+
+</body>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/static/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="/static/assets/js/vendor/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="/static/assets/js/vendor/holder.min.js"></script>
+
+</html>
